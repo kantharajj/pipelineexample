@@ -4,33 +4,26 @@ pipeline {
         stage ('Compile ')
 {
 steps
- {
-      withMaven (maven: 'MAVEN-HOME')
 {
 sh 'mvn compile'
 }
 }
-}
+
         stage('Test') {
-            steps {
-            
-      withMaven (maven: 'MAVEN-HOME')
-      {
+            steps 
+            {
                 echo 'Testing..'
                 sh 'mvn test'
             }
         }
-        }
         
         stage('packaging') {
-            steps {
-            
-      withMaven (maven: 'MAVEN-HOME')
+            steps 
       {
-                echo 'Testing..'
+                echo 'packaging..'
                 sh 'mvn package'
             }
         }
         }
-        }
+        
     } 
