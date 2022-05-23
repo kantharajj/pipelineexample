@@ -5,7 +5,7 @@ pipeline {
 {
 steps
  {
-      withMaven (maven: 'MAVEN-HOME')
+      withMaven (maven: 'MAVEN')
 {
 bat 'mvn compile'
 }
@@ -14,7 +14,7 @@ bat 'mvn compile'
         stage('Test') {
             steps {
             
-      withMaven (maven: 'MAVEN-HOME')
+      withMaven (maven: 'MAVEN')
       {
                 echo 'Testing..'
                 bat 'mvn test'
@@ -25,7 +25,7 @@ bat 'mvn compile'
         stage('packaging') {
             steps {
             
-      withMaven (maven: 'MAVEN-HOME')
+      withMaven (maven: 'MAVEN')
       {
                 echo 'Testing..'
                 bat 'mvn package'
